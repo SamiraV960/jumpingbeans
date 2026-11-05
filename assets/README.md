@@ -1,14 +1,17 @@
 # Assets
 
-Real assets in use:
-- `jumping-beans-logo.png` — brand logo, cropped square (nav & footer, shown as a circle).
-- `jumping-beans-logo-full.jpg` — original full-frame logo (1536×1024).
-- `barista-pour.jpg` — Our Story section + Gallery tile.
-- `gram-espresso.jpg`, `gram-promo.jpg`, `gram-box.jpg` — Gallery tiles.
+Media for the site, referenced by `../index.html` via relative `assets/…` paths.
+Extracted from the original all-in-one build and compressed (identical
+appearance, far smaller page).
 
-Remaining placeholder to replace:
-
-| File | Used in | Spec |
-|------|---------|------|
-| `coffee-truck-hero.jpg` | Hero | Full-bleed truck shot (cream overlay sits on top) |
-| `location-map.embed` | Find Our Truck | Google Maps / Mapbox embed (currently "coming soon") |
+| File | Used in |
+|------|---------|
+| `jumping-beans-coffee-logo-*.jpg` | Nav + hero logo |
+| `jumping-beans-founder-leaning-*.jpg` | Our Story — founder at the truck |
+| `founder-of-jumping-beans-*.jpg` | Founder bio |
+| `bg-blur-513ab017.jpg` | Find Our Truck — front view |
+| `bg-blur-f6195661.jpg` | Find Our Truck — rear view |
+| `truck-video-poster-*.jpg` | Truck video poster |
+| `truck-video.mp4` | Truck video (streams on demand) |
+| `something-big-is-brewing-*.jpg` | Truck teaser |
+| `fresh-espresso-pouring-into-*.jpg` | Gallery |

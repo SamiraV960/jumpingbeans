@@ -1,367 +1,810 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jumping Beans Coffee — Plant-Based Mobile Coffee Truck</title>
-  <meta name="description" content="Jumping Beans Coffee Ltd — plant-based coffee, handcrafted for every journey. Find our mobile coffee truck at markets and festivals across London, and book us for your event.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jumping Beans Coffee — Plant-Based Coffee Truck, London</title>
+<meta name="description" content="Jumping Beans Coffee — a mobile, plant-based coffee truck serving markets, festivals and communities across London.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#3B2410; --espresso-dark:#2A1809; --cream-deep:#F4E8D6; --cream:#FBF4E8;
+  --caramel:#C27C2E; --caramel-light:#E3A85C; --coffee:#6B4226; --sage:#6E6B42;
+  --terracotta:#B2600C; --ink:#2E1B0C; --radius:14px;
+  --shadow:0 10px 30px rgba(42,24,9,0.14);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.6;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--espresso-dark);margin:0 0 .4em;}
+.script{font-family:'Great Vibes',cursive;color:var(--caramel);font-size:1.4em;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1120px;margin:0 auto;padding:0 24px;}
 
-  <meta name="keywords" content="mobile coffee truck, coffee truck near me, coffee catering, festival coffee supplier, event coffee hire, plant based coffee, local coffee company">
-  <meta property="og:title" content="Jumping Beans Coffee — Plant-Based Mobile Coffee Truck">
-  <meta property="og:description" content="Plant-based coffee, handcrafted for every journey. Find our truck at markets and festivals.">
-  <meta property="og:type" content="website">
+/* Promo bar */
+.promo-bar{background:var(--espresso-dark);}
+.promo-bar a{display:flex;align-items:center;justify-content:center;gap:8px;padding:9px 16px;text-decoration:none;color:var(--cream);font-size:.8rem;font-weight:600;}
+.promo-bar svg{width:15px;height:15px;stroke:var(--caramel-light);flex:none;}
+.promo-bar .pb-arrow{width:12px;height:12px;transition:transform .15s ease;}
+.promo-bar a:hover .pb-arrow{transform:translateX(3px);}
 
-  <link rel="icon" href="assets/jumping-beans-logo.png">
+/* Nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,244,232,0.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(42,24,9,0.1);}
+nav.container{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.15rem;color:var(--espresso-dark);}
+.brand-logo{width:38px;height:38px;border-radius:50%;object-fit:cover;flex:none;}
+nav ul{list-style:none;display:flex;gap:28px;margin:0;padding:0;font-size:.92rem;font-weight:500;}
+nav ul a:hover{color:var(--caramel);}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;background:var(--caramel);color:var(--espresso-dark);font-weight:700;font-size:.9rem;box-shadow:var(--shadow);}
+.btn.outline{background:transparent;border:1.5px solid var(--espresso);color:var(--espresso-dark);}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,800;0,900;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+/* Hero */
+.hero{background:radial-gradient(circle at 15% 20%, rgba(194,124,46,0.18), transparent 45%), var(--espresso-dark);color:var(--cream);padding:90px 0 70px;position:relative;overflow:hidden;}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--caramel-light);font-weight:700;margin-bottom:14px;display:block;}
+.hero-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;position:relative;z-index:1;}
+.hero-copy{flex:1;min-width:0;}
+.hero-logo{width:170px;height:170px;border-radius:50%;flex:none;box-shadow:0 0 0 6px rgba(227,168,92,0.15), var(--shadow);object-fit:cover;}
+.hero h1{color:#fff;font-size:3rem;max-width:640px;line-height:1.12;}
+.hero h1 em{font-style:normal;color:var(--caramel-light);}
+.hero p{max-width:520px;color:rgba(251,244,232,0.85);font-size:1.05rem;}
+.hero-ctas{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap;}
+.whisk-divider{display:flex;align-items:center;gap:10px;color:var(--caramel-light);font-size:.85rem;letter-spacing:.05em;margin:36px 0 8px;opacity:.85;}
+.whisk-divider svg{width:22px;height:22px;flex:none;}
+.whisk-divider .line{flex:1;height:1px;background:linear-gradient(90deg, rgba(227,168,92,.6), transparent);}
 
-  <link rel="stylesheet" href="css/styles.css">
+section{padding:76px 0;}
+.section-tag{color:var(--terracotta);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
+
+/* Story / Values / Vision */
+.story{background:var(--cream-deep);}
+.story-block{max-width:760px;margin:0 auto;}
+.story-block + .story-block{margin-top:56px;padding-top:44px;border-top:1px solid rgba(42,24,9,0.14);}
+.story-block p{margin:0 0 1em;font-size:1.02rem;color:var(--ink);}
+.story-block ul{margin:0 0 1em;padding-left:1.3em;}
+.story-block li{margin-bottom:.5em;}
+.story-block .script{display:block;margin-top:20px;text-align:center;font-size:1.6em;}
+.story-photo{margin:22px 0 28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.story-photo img{width:100%;height:auto;display:block;max-height:520px;object-fit:cover;}
+.story-photo figcaption{background:var(--espresso-dark);color:var(--cream);font-size:.82rem;padding:12px 18px;font-style:italic;}
+.founder-bio{max-width:760px;margin:56px auto 0;padding-top:44px;border-top:1px solid rgba(42,24,9,0.14);display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;}
+.founder-bio .fb-photo{flex:none;width:120px;height:120px;border-radius:50%;overflow:hidden;box-shadow:var(--shadow);border:3px solid var(--cream);}
+.founder-bio .fb-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.founder-bio .fb-text{flex:1;min-width:240px;}
+.founder-bio .fb-eyebrow{color:var(--terracotta);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px;}
+.founder-bio h3{font-family:'Fraunces',serif;font-size:1.15rem;margin:0 0 10px;color:var(--espresso-dark);}
+.founder-bio ul{margin:0;padding-left:1.2em;}
+.founder-bio li{margin-bottom:6px;font-size:.92rem;color:var(--ink);}
+
+/* Menu */
+.menu{background:var(--cream-deep);position:relative;}
+.menu::before{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+.menu .container{position:relative;z-index:1;}
+.menu .section-tag{color:var(--coffee);}
+.menu-intro{color:var(--ink);opacity:.72;max-width:520px;}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:40px;}
+.menu-card{background:var(--cream);border:1px solid rgba(42,24,9,0.12);border-radius:10px;padding-bottom:20px;box-shadow:0 4px 16px rgba(42,24,9,0.07);overflow:hidden;}
+.menu-card .banner{display:flex;align-items:center;gap:10px;padding:11px 22px 11px 18px;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:.98rem;letter-spacing:.01em;clip-path:polygon(0 0, 100% 0, 95% 100%, 0% 100%);}
+.icon-circle{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex:none;}
+.icon-circle svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.banner.coffee{background:var(--coffee);}
+.banner.matcha{background:var(--sage);}
+.banner.iced{background:var(--caramel-light);color:var(--espresso-dark);}
+.banner.iced .icon-circle svg{stroke:var(--espresso-dark);}
+.banner.specials{background:var(--caramel);color:var(--espresso-dark);}
+.banner.specials .icon-circle svg{stroke:var(--espresso-dark);}
+.banner.tea{background:var(--terracotta);}
+.banner.food{background:var(--coffee);}
+.banner.combo{background:var(--espresso-dark);}
+.menu-card ul{list-style:none;margin:14px 20px 0;padding:0;}
+.menu-card li{display:flex;justify-content:space-between;font-size:.92rem;padding:6px 0;border-bottom:1px dashed rgba(42,24,9,0.15);color:var(--ink);}
+.menu-card li:last-child{border-bottom:none;}
+.menu-card li span.price{color:var(--coffee);font-weight:700;}
+.menu-card.perk{background:transparent;border:1.5px dashed var(--caramel);box-shadow:none;}
+.menu-card.perk .banner{clip-path:none;background:transparent;color:var(--espresso-dark);padding-left:20px;border-bottom:1px solid rgba(194,124,46,.35);}
+.menu-card.perk .icon-circle{background:rgba(194,124,46,.18);}
+.menu-card.perk .icon-circle svg{stroke:var(--caramel);}
+.card-footnote{font-size:.78rem;color:var(--ink);opacity:.6;margin:14px 20px 0;font-style:italic;}
+.menu-tagline{text-align:center;margin-top:44px;font-family:'Fraunces',serif;font-size:1.1rem;color:var(--coffee);letter-spacing:.02em;}
+.hero-drink{margin-top:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--cream);border:1.5px solid var(--caramel);border-radius:var(--radius);padding:26px 30px;box-shadow:0 4px 16px rgba(42,24,9,0.07);}
+.hero-drink-tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--coffee);display:block;margin-bottom:8px;}
+.hero-drink-text h3{color:var(--espresso-dark);font-size:1.3rem;margin-bottom:6px;}
+.hero-drink-text p{color:var(--ink);opacity:.75;font-size:.92rem;max-width:460px;margin:0;}
+.hero-drink-price{font-family:'Fraunces',serif;font-size:2rem;font-weight:700;color:var(--caramel);flex:none;}
+
+/* Find Our Truck */
+.truck{background:var(--cream);}
+.truck-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;}
+.blur-frame{position:relative;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow);height:320px;}
+.blur-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.blur-frame .bg-blur{filter:blur(18px) brightness(0.9);transform:scale(1.15);}
+.blur-frame .fg-sharp{position:absolute;inset:0;-webkit-mask-image:radial-gradient(ellipse 58% 62% at 50% 52%, black 55%, transparent 88%);mask-image:radial-gradient(ellipse 58% 62% at 50% 52%, black 55%, transparent 88%);}
+.truck-video-wrap{margin-top:24px;}
+.truck-video-wrap video{width:100%;border-radius:var(--radius);box-shadow:var(--shadow);display:block;background:#000;}
+.truck-teaser{margin-top:36px;display:flex;align-items:center;gap:30px;background:var(--espresso-dark);color:var(--cream);border-radius:var(--radius);overflow:hidden;}
+.truck-teaser .blur-frame{width:220px;height:220px;flex:none;border-radius:0;box-shadow:none;}
+.truck-teaser-text{padding:20px 30px 20px 0;}
+.truck-teaser-text p{color:rgba(251,244,232,0.85);margin:6px 0 0;}
+
+/* Merch */
+/* ===== Get the App ===== */
+.get-app{background:var(--espresso-dark);color:var(--cream);}
+.get-app-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+.get-app-copy h2{color:var(--cream);font-size:1.9rem;margin:6px 0 14px;line-height:1.25;}
+.get-app-copy p{color:rgba(251,244,232,0.82);max-width:440px;margin-bottom:22px;}
+.get-app-features{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:14px;}
+.get-app-features li{display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--cream);}
+.get-app-features li svg{width:20px;height:20px;stroke:var(--caramel-light);flex:none;}
+.get-app-form{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.get-app-form input[type=email]{flex:1;min-width:220px;padding:13px 18px;border-radius:999px;border:1.5px solid rgba(251,244,232,0.3);background:rgba(251,244,232,0.08);color:var(--cream);font-family:'Manrope',sans-serif;font-size:.92rem;}
+.get-app-form input[type=email]::placeholder{color:rgba(251,244,232,0.55);}
+.get-app-form input[type=email]:focus{outline:none;border-color:var(--caramel-light);}
+.get-app-form button{padding:13px 26px;border-radius:999px;background:var(--caramel);color:var(--espresso-dark);font-weight:800;font-size:.9rem;border:none;cursor:pointer;font-family:'Manrope',sans-serif;}
+.get-app-form button:hover{background:var(--caramel-light);}
+.get-app-note{font-size:.76rem;color:rgba(251,244,232,0.55);}
+.get-app-visual{display:flex;flex-direction:column;gap:20px;}
+.ga-ring-card{background:rgba(251,244,232,0.06);border:1px solid rgba(227,168,92,0.2);border-radius:var(--radius);padding:30px;text-align:center;}
+.ga-ring{width:110px;height:110px;border-radius:50%;background:conic-gradient(var(--caramel) 0% 62%, rgba(251,244,232,0.15) 62% 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;position:relative;}
+.ga-ring::after{content:'';position:absolute;width:82px;height:82px;border-radius:50%;background:var(--espresso-dark);}
+.ga-ring-num{position:relative;z-index:1;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--cream);}
+.ga-ring-label{font-size:.9rem;color:rgba(251,244,232,0.85);}
+.ga-qr-card{background:var(--cream-deep);border-radius:var(--radius);padding:22px;display:flex;align-items:center;gap:16px;}
+.ga-qr{width:64px;height:64px;flex:none;}
+.ga-qr-card span{font-size:.82rem;color:var(--ink);line-height:1.4;}
+.ga-qr-card em{font-style:normal;color:var(--coffee);font-size:.74rem;}
+.ga-preview-btn{display:block;text-align:center;padding:13px;border-radius:999px;border:1.5px solid rgba(251,244,232,0.35);color:var(--cream);text-decoration:none;font-weight:700;font-size:.86rem;}
+.ga-preview-btn:hover{background:rgba(251,244,232,0.08);}
+
+.merch{background:var(--cream);}
+.merch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px;}
+.merch-card{background:var(--cream-deep);border:1px solid rgba(42,24,9,0.12);border-radius:var(--radius);padding:34px 18px;text-align:center;box-shadow:var(--shadow);}
+.icon-circle-lg{width:60px;height:60px;border-radius:50%;background:rgba(194,124,46,.14);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.icon-circle-lg svg{width:30px;height:30px;stroke:var(--caramel);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.merch-card h3{font-family:'Fraunces',serif;font-weight:600;color:var(--espresso-dark);font-size:1.02rem;margin:0 0 12px;}
+.merch-pill{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta);border:1px solid var(--terracotta);border-radius:999px;padding:5px 13px;}
+.merch-notify{margin-top:40px;background:var(--espresso-dark);color:var(--cream);border-radius:var(--radius);padding:36px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;box-shadow:var(--shadow);}
+.merch-notify-text b{font-family:'Fraunces',serif;font-size:1.15rem;display:block;margin-bottom:4px;color:var(--cream);}
+.merch-notify-text span{font-size:.86rem;color:var(--caramel-light);}
+.merch-notify-form{display:flex;gap:10px;flex-wrap:wrap;flex:none;}
+.merch-notify-form input[type=email]{padding:12px 16px;border-radius:999px;border:1.5px solid rgba(251,244,232,0.3);background:rgba(251,244,232,0.08);color:var(--cream);font-family:'Manrope',sans-serif;font-size:.9rem;min-width:220px;}
+.merch-notify-form input[type=email]::placeholder{color:rgba(251,244,232,0.55);}
+.merch-notify-form input[type=email]:focus{outline:none;border-color:var(--caramel-light);background:rgba(251,244,232,0.14);}
+.merch-notify-form button{padding:12px 24px;border-radius:999px;background:var(--caramel);color:var(--espresso-dark);font-weight:700;font-size:.86rem;border:none;cursor:pointer;font-family:'Manrope',sans-serif;}
+.merch-notify-form button:hover{background:var(--caramel-light);}
+.merch-notify-note{width:100%;font-size:.74rem;color:rgba(251,244,232,0.6);margin-top:2px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* Gallery */
+.gallery{background:var(--cream-deep);}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;}
+.gallery-grid img{width:100%;height:220px;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);}
+
+/* Reviews */
+.reviews{background:var(--espresso-dark);color:var(--cream);text-align:center;}
+.reviews .section-tag{color:var(--caramel-light);}
+.reviews h2{color:#fff;}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;text-align:left;}
+.review-card{background:rgba(251,244,232,0.06);border:1px solid rgba(227,168,92,0.2);border-radius:var(--radius);padding:26px;}
+.review-card p{font-style:italic;color:rgba(251,244,232,0.9);}
+.review-card .who{color:var(--caramel-light);font-weight:700;margin-top:10px;display:block;}
+.review-wall{display:flex;gap:20px;overflow-x:auto;margin-top:36px;padding-bottom:8px;scroll-snap-type:x proximity;}
+.review-wall .review-card{flex:none;width:280px;scroll-snap-align:start;text-align:left;}
+.faq-list{max-width:760px;margin:36px auto 0;}
+.faq-item{border-bottom:1px solid rgba(42,24,9,0.14);}
+.faq-item summary{list-style:none;cursor:pointer;padding:20px 4px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:'Fraunces',serif;font-weight:600;color:var(--espresso-dark);font-size:1.02rem;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';font-family:'Manrope',sans-serif;font-size:1.4rem;font-weight:400;color:var(--caramel);flex:none;}
+.faq-item[open] summary::after{content:'\2212';}
+.faq-item p{margin:0 4px 20px;color:var(--ink);font-size:.95rem;max-width:640px;}
+
+.cta-band{background:var(--caramel);color:var(--espresso-dark);text-align:center;padding:60px 0;}
+.cta-band h2{color:var(--espresso-dark);}
+.cta-band .btn{background:var(--espresso-dark);color:var(--cream);}
+
+footer{background:var(--espresso-dark);color:rgba(251,244,232,0.7);padding:50px 0 28px;font-size:.9rem;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+footer h4{color:var(--caramel-light);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+footer ul{list-style:none;padding:0;margin:0;}
+footer li{margin-bottom:8px;}
+.social-row{display:flex;gap:12px;margin-top:6px;}
+.social-icon{width:32px;height:32px;border-radius:50%;background:rgba(251,244,232,0.08);display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.social-icon:hover{background:var(--caramel);}
+.social-icon svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.6;}
+.nav-social{margin-top:0;gap:8px;}
+.nav-social .social-icon{width:30px;height:30px;background:rgba(42,24,9,0.08);}
+.nav-social .social-icon svg{stroke:var(--espresso-dark);}
+.nav-social .social-icon:hover{background:var(--caramel);}
+.nav-social .social-icon:hover svg{stroke:var(--espresso-dark);}
+.nav-actions{display:flex;align-items:center;gap:16px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;font-size:.8rem;color:rgba(251,244,232,0.5);}
+
+@media(max-width:900px){
+  .two-col,.footer-grid{grid-template-columns:1fr;}
+  .menu-grid{grid-template-columns:1fr;}
+  .merch-grid{grid-template-columns:1fr 1fr;}
+  .get-app-grid{grid-template-columns:1fr;gap:36px;}
+  .get-app-visual{order:-1;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .review-grid{grid-template-columns:1fr;}
+  nav ul{display:none;}
+  .nav-social{display:none;}
+  .hero h1{font-size:2.2rem;}
+  .hero-inner{flex-direction:column;}
+  .hero-logo{width:100px;height:100px;order:-1;}
+  .truck-photo-grid{grid-template-columns:1fr;}
+  .truck-teaser{flex-direction:column;}
+  .truck-teaser .blur-frame{width:100%;height:200px;}
+  .truck-teaser-text{padding:0 24px 24px;}
+}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+</style>
 </head>
 <body>
 
-  <!-- SVG SPRITE (icons + botanical motifs) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <defs>
-      <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9h2.5a2.5 2.5 0 0 1 0 5H17" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2c-1 1.2-1 2.3 0 3.5M12 2c-1 1.2-1 2.3 0 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 22s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-      <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 11h16v9a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 7.5h18V11H3zM12 7.5V21" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5S10.5 3 8 4c-2 .8-1 3.5 4 3.5Zm0 0S13.5 3 16 4c2 .8 1 3.5-4 3.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20C3 12 8 4 20 4c0 12-8 17-16 16Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 20C8 16 12 12 18 7" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
-      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9L12 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
-      <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 9.5h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
-      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1.1" fill="currentColor"/></symbol>
-      <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 3c.4 2.6 2 4.3 4.6 4.6v3.1c-1.7 0-3.2-.5-4.6-1.5v6.1a6.1 6.1 0 1 1-6.1-6.1c.3 0 .7 0 1 .1v3.2a3 3 0 1 0 2 2.8V3H14Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
-      <!-- Botanical coffee sprig (decorative) -->
-      <symbol id="sprig" viewBox="0 0 120 200">
-        <path d="M60 198 C60 150 60 90 60 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-        <g fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M60 150 C36 146 22 128 22 104 C48 106 60 124 60 150 Z"/>
-          <path d="M60 150 C46 138 42 130 46 118"/>
-          <path d="M60 118 C84 114 98 96 98 72 C72 74 60 92 60 118 Z"/>
-          <path d="M60 118 C74 106 78 98 74 86"/>
-          <path d="M60 86 C36 82 22 64 22 40 C48 42 60 60 60 86 Z"/>
-          <path d="M60 86 C46 74 42 66 46 54"/>
-        </g>
-        <g fill="currentColor" opacity=".55">
-          <ellipse cx="60" cy="26" rx="6.5" ry="9" transform="rotate(12 60 26)"/>
-          <ellipse cx="47" cy="34" rx="6" ry="8.5" transform="rotate(-18 47 34)"/>
-        </g>
-      </symbol>
-      <symbol id="sun" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
-        <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M50 8v12M50 80v12M8 50h12M80 50h12M20 20l8 8M72 72l8 8M80 20l-8 8M28 72l-8 8"/>
-        </g>
-      </symbol>
-    </defs>
-  </svg>
+<div class="promo-bar">
+  <a href="#get-app">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/><circle cx="16.5" cy="14" r="1"/></svg>
+    <span>Order ahead &amp; earn free coffee with Perk Me Up — get the app</span>
+    <svg class="pb-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </a>
+</div>
 
-  <div class="grain" aria-hidden="true"></div>
-
-  <!-- NAV -->
-  <nav class="nav" aria-label="Primary">
-    <a href="#top" class="brand" aria-label="Jumping Beans Coffee — home">
-      <img class="brand__logo" src="assets/jumping-beans-logo.png" alt="Jumping Beans Coffee" width="50" height="50">
-      <span class="brand__word">
-        <span class="brand__script">Jumping</span>
-        <span class="brand__name">BEANS</span>
-      </span>
-    </a>
-
-    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <div class="nav__menu" id="nav-menu">
-      <a href="#story">Our Story</a>
-      <a href="#truck">Find Our Truck</a>
-      <a href="#menu">Menu</a>
-      <a href="#events">Events</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#club">Coffee Club</a>
+<header>
+  <nav class="container">
+    <a class="brand" href="#top"><img src="assets/jumping-beans-coffee-logo-e3615d71.jpg" alt="Jumping Beans Coffee logo" class="brand-logo"> Jumping Beans</a>
+    <ul>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#truck">Find Our Truck</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#get-app">Get the App</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#merch">Merch</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn" href="#events">Book Us</a>
+      <div class="social-row nav-social">
+        <a class="social-icon" href="https://www.instagram.com/jumping_beans26/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="#fff" stroke="none"/></svg>
+        </a>
+        <a class="social-icon" href="https://www.tiktok.com/@jumpingbeanscoffee" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M15 3v10.5a3.5 3.5 0 1 1-3-3.46"/><path d="M15 3c.3 2.4 2 4.2 4.4 4.5"/></svg>
+        </a>
+        <a class="social-icon" href="mailto:jumping_bean26@hotmail.com" aria-label="Email Jumping Beans Coffee">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <header id="top" class="hero">
-    <div class="hero__bg" aria-hidden="true">
-      <span class="placeholder-label placeholder-label--ondark">coffee-truck-hero.jpg</span>
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Mobile · Plant-Based · Coffee Truck</span>
+      <h1>Plant-based coffee, <em>handcrafted for every journey.</em></h1>
+      <p>A mobile coffee truck bringing barista-quality, plant-based brews to markets, festivals and communities — with a small matcha menu also on offer.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#truck">Find Our Truck</a>
+        <a class="btn outline" href="#menu" style="color:#fff;border-color:rgba(255,255,255,.5);">View Menu</a>
+      </div>
+      <div class="whisk-divider">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2c2 3 2 6 0 9M9 4c1.5 2.5 1.5 5 0 7.5M15 4c-1.5 2.5-1.5 5 0 7.5M12 11v11"/></svg>
+        <span class="line"></span>
+        Good coffee. Good people. Good moments.
+        <span class="line"></span>
+      </div>
     </div>
-    <div class="hero__overlay" aria-hidden="true"></div>
-    <svg class="hero__sun" aria-hidden="true"><use href="#sun"/></svg>
-    <svg class="hero__sprig hero__sprig--l" aria-hidden="true"><use href="#sprig"/></svg>
-    <svg class="hero__sprig hero__sprig--r" aria-hidden="true"><use href="#sprig"/></svg>
+    <img src="assets/jumping-beans-coffee-logo-e3615d71.jpg" alt="Jumping Beans Coffee logo" class="hero-logo">
+  </div>
+</section>
 
-    <div class="hero__inner">
-      <span class="eyebrow-pill"><span class="dot"></span>Mobile · Ethical · Plant Based</span>
-      <p class="hero__brand">Jumping Beans Coffee</p>
-      <h1 class="hero__title">Plant-based coffee,<br><span class="accent">handcrafted for every journey.</span></h1>
-      <p class="script-lg">Good coffee, good people, good moments.</p>
-      <p class="hero__body">A mobile coffee truck bringing barista-quality, plant-based brews to markets, festivals and communities — wherever the journey takes us.</p>
+<section class="story" id="story">
+  <div class="container">
+
+    <div class="story-block">
+      <span class="section-tag">Our Story</span>
+      <h2>Good coffee, good people, meaningful conversations</h2>
+      <figure class="story-photo">
+        <img src="assets/jumping-beans-founder-leaning-f4f19b35.jpg" alt="Jumping Beans founder leaning on the coffee truck in the park, chalkboard menu beside him">
+        <figcaption>Where it all happens — the truck, the menu, and the person behind it.</figcaption>
+      </figure>
+      <p>Jumping Beans started with a simple idea: good coffee, good people and meaningful conversations. Raised in North London and shaped by more than a decade of working in education and local communities, I've spent my life bringing people together. Whether in the classroom, on the football pitch or over a cup of coffee, I've always believed that connection is at the heart of every strong community.</p>
+      <p>What began as an idea in my kitchen — researching coffee, experimenting with beans and learning the craft of espresso — has grown into something much bigger: a mobile coffee company built on people, sustainability and the belief that small choices can create lasting change.</p>
+      <p>Becoming a father has given that vision an even greater purpose. It has made me think deeply about the kind of world we're leaving behind and the responsibility we all share to create something better for future generations. Jumping Beans is built on the hope that businesses can be successful while still caring for people, communities and the planet.</p>
+      <p>Today, Jumping Beans is taking its first steps onto the streets of London, serving exceptional coffee and creating spaces where everyone feels welcome.</p>
     </div>
-  </header>
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span class="marquee__group">Good coffee. &nbsp;•&nbsp; Good people. &nbsp;•&nbsp; Good moments. &nbsp;•&nbsp;&nbsp;</span>
-      <span class="marquee__group">Good coffee. &nbsp;•&nbsp; Good people. &nbsp;•&nbsp; Good moments. &nbsp;•&nbsp;&nbsp;</span>
+    <div class="story-block">
+      <span class="section-tag">Our Values</span>
+      <h2>Balance, not perfection</h2>
+      <p>Having been brought up vegan, my outlook has always been influenced by questions around sustainability, ethics and our responsibility to the world around us. Over time, I've discovered that it's not about perfection — it's about finding balance.</p>
+      <p>As a father and family man, those values have taken on a new meaning. The choices we make today shape the world our children will inherit tomorrow. That's why Jumping Beans is committed to creating something that respects people, animals and the environment, while remaining accessible and enjoyable for everyone.</p>
+      <p>Every decision we make is guided by a commitment to:</p>
+      <ul>
+        <li>Building genuine connections within local communities.</li>
+        <li>Supporting ethical and responsible suppliers.</li>
+        <li>Creating high-quality products that people genuinely enjoy.</li>
+        <li>Making sustainability accessible, practical and inclusive.</li>
+        <li>Leaving behind a positive legacy for future generations.</li>
+      </ul>
+      <p>For us, coffee is about far more than what's in the cup — it's about the conversations, experiences and relationships that come with it.</p>
+    </div>
+
+    <div class="story-block">
+      <span class="section-tag">Our Vision</span>
+      <h2>Beyond a single coffee truck</h2>
+      <p>We're only just getting started. Our ambition is to grow Jumping Beans beyond a single coffee truck and become a recognised part of communities across London and beyond. We see a future filled with markets, festivals, events and partnerships that celebrate creativity, sustainability and togetherness.</p>
+      <p>As a family-run business, our vision reaches beyond the present moment. We want to build something that future generations can be proud of — a company that proves ethical choices, sustainability and strong communities can thrive together.</p>
+      <p>Success, for us, isn't measured simply by the number of coffees we sell. It's measured by the conversations we start, the communities we build and the positive impact we leave behind.</p>
+      <span class="script">Jumping Beans is more than a business — it's a journey, and we'd love for you to be part of it.</span>
+    </div>
+
+    <div class="founder-bio">
+      <div class="fb-photo">
+        <img src="assets/founder-of-jumping-beans-703a4741.jpg" alt="Founder of Jumping Beans Coffee at the truck">
+      </div>
+      <div class="fb-text">
+        <span class="fb-eyebrow">Founder &amp; Owner</span>
+        <h3>The person behind the truck</h3>
+        <ul>
+          <li>Rooted in North London's education and community work before starting Jumping Beans</li>
+          <li>Built the business as a family-run venture, with sustainability and ethics baked into every decision</li>
+          <li>Driven by a simple goal: build something meaningful that future generations can be proud of</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="truck" id="truck">
+  <div class="container">
+    <span class="section-tag">Coming Soon</span>
+    <h2>Meet the new Jumping Beans ride</h2>
+    <p style="max-width:520px;">Same passion, bigger experience. Our new coffee truck is built and ready — arched windows, handcrafted signage, and room to brew both coffee and ceremonial-style matcha on the move.</p>
+
+    <div class="truck-photo-grid">
+      <div class="blur-frame">
+        <img class="bg-blur" src="assets/truck-video-poster-5e0383cf.jpg" alt="">
+        <img class="fg-sharp" src="assets/truck-video-poster-5e0383cf.jpg" alt="Jumping Beans Coffee truck, front three-quarter view">
+      </div>
+      <div class="blur-frame">
+        <img class="bg-blur" src="assets/bg-blur-513ab017.jpg" alt="">
+        <img class="fg-sharp" src="assets/bg-blur-513ab017.jpg" alt="Jumping Beans Coffee truck, rear view showing branding">
+      </div>
+    </div>
+
+    <div class="truck-video-wrap">
+      <video controls preload="metadata" poster="assets/truck-video-poster-5e0383cf.jpg">
+        <source src="assets/truck-video.mp4" type="video/mp4">
+        Your browser doesn't support embedded video — the file is included at assets/truck-video.mp4.
+      </video>
+    </div>
+
+    <div class="truck-teaser">
+      <div class="blur-frame">
+        <img class="bg-blur" src="assets/bg-blur-f6195661.jpg" alt="">
+        <img class="fg-sharp" src="assets/bg-blur-f6195661.jpg" alt="From idea to reality — the new Jumping Beans coffee truck">
+      </div>
+      <div class="truck-teaser-text">
+        <span class="script">from a spark of an idea...</span>
+        <p>...to a truck on the road. Something big has been brewing behind the scenes — stay tuned for our new weekly locations.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- OUR STORY -->
-  <section id="story" class="story">
-    <svg class="story__sprig" aria-hidden="true"><use href="#sprig"/></svg>
-    <div class="story__inner">
-      <div class="media-frame media-frame--story">
-        <img class="media-frame__img" src="assets/barista-pour.jpg" alt="A Jumping Beans barista serving a fresh cappuccino" width="1610" height="1029">
+<section class="menu" id="menu">
+  <div class="container">
+    <span class="section-tag">On The Menu</span>
+    <h2>Brews & Treats</h2>
+    <p class="menu-intro">Plant-based coffee is our craft — every cup made with premium oat milk. A small matcha menu is also available for those who want it.</p>
+
+    <div class="hero-drink">
+      <div class="hero-drink-text">
+        <span class="hero-drink-tag">Our Speciality</span>
+        <h3>Jumping Beans Signature Salted Caramel Oat Flat White</h3>
+        <p>Double espresso, steamed oat milk and house-made vegan caramel syrup, finished with a pinch of sea salt. The drink we're known for.</p>
       </div>
-      <div class="story__copy">
-        <span class="script-eyebrow">Our Story</span>
-        <h2 class="section-title">Rooted in good, brewed with purpose.</h2>
-        <p>We're a mobile coffee truck on a simple mission: prove that plant-based coffee can taste incredible <em>and</em> tread lightly on the planet. From oat-milk flat whites to house-made syrups, everything we serve is crafted to be good for you and good for the earth.</p>
-        <p>You'll find us parked up at markets, festivals and community events — wherever good people gather for good moments.</p>
-        <a href="#club" class="text-link">Read the full story →</a>
+      <span class="hero-drink-price">£4.50</span>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="banner coffee">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 3c0 1-1 1-1 2M11 3c0 1-1 1-1 2"/></svg></span>
+          Coffee
+        </div>
+        <ul>
+          <li>Espresso <span class="price">£2.50</span></li>
+          <li>Americano <span class="price">£3.00</span></li>
+          <li>Flat White <span class="price">£3.50</span></li>
+          <li>Cappuccino <span class="price">£3.50</span></li>
+          <li>Latte <span class="price">£3.75</span></li>
+          <li>Large Latte <span class="price">£4.25</span></li>
+          <li>Mocha <span class="price">£4.25</span></li>
+          <li>Baby Chino <span class="price">£1.50</span></li>
+        </ul>
+        <p class="card-footnote">All drinks made with premium oat milk</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner specials">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 21c-4-2-7-5.5-7-9a7 7 0 0 1 14 0c0 3.5-3 7-7 9Z"/><path d="M12 12v6"/></svg></span>
+          Jumping Beans Specials
+        </div>
+        <ul>
+          <li>Vanilla Oat Latte <span class="price">£4.25</span></li>
+          <li>Caramel Oat Latte <span class="price">£4.25</span></li>
+          <li>Hazelnut Mocha <span class="price">£4.50</span></li>
+          <li>Chai Oat Latte <span class="price">£4.25</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner iced">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M6 4h12l-1.2 15a2 2 0 0 1-2 1.8H9.2A2 2 0 0 1 7.2 19L6 4Z"/><path d="M9 9v9M12 9v9M15 9v9"/></svg></span>
+          Iced Coffee
+        </div>
+        <ul>
+          <li>Iced Americano <span class="price">£3.50</span></li>
+          <li>Iced Latte <span class="price">£4.00</span></li>
+          <li>Iced Vanilla Latte <span class="price">£4.50</span></li>
+          <li>Iced Caramel Latte <span class="price">£4.50</span></li>
+          <li>Iced Mocha <span class="price">£4.75</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner tea">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 9h13v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z"/><path d="M17 10h1.5a2 2 0 0 1 0 4H17"/><path d="M8 4c1 1 0 2 1 3M13 4c1 1 0 2 1 3"/></svg></span>
+          Tea
+        </div>
+        <ul>
+          <li>English Breakfast <span class="price">£2.50</span></li>
+          <li>Earl Grey <span class="price">£2.50</span></li>
+          <li>Herbal Tea <span class="price">£2.75</span></li>
+          <li>Fresh Mint Tea <span class="price">£3.00</span></li>
+          <li>Chai Tea Latte <span class="price">£3.75</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner matcha">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M8 3c1.5 2 1.5 4 0 6M12 2c1.5 2.5 1.5 5 0 7.5M16 3c-1.5 2-1.5 4 0 6"/><path d="M7 11h10v3a5 5 0 0 1-5 5 5 5 0 0 1-5-5v-3Z"/></svg></span>
+          Matcha (also available)
+        </div>
+        <ul>
+          <li>Classic Matcha Latte <span class="price">£4.50</span></li>
+          <li>Vanilla Matcha Latte <span class="price">£4.75</span></li>
+          <li>Strawberry Matcha Latte <span class="price">£5.00</span></li>
+          <li>Iced Matcha Latte <span class="price">£4.75</span></li>
+          <li>Iced Vanilla Matcha <span class="price">£5.00</span></li>
+          <li>Strawberry Matcha Ice Drink <span class="price">£5.00</span></li>
+        </ul>
+        <p class="card-footnote">Also try the Strawberry Matcha Cloud, £5.50</p>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner food">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M4 12c2-5 6-8 8-8s3 2 2 4c3 0 5 2 5 4 0 3-4 8-10 8-3 0-6-2-6-4 0-1.5 1-3 1-4Z"/></svg></span>
+          Food
+        </div>
+        <ul>
+          <li>Plain Croissant <span class="price">£2.50</span></li>
+          <li>Chocolate Croissant <span class="price">£3.00</span></li>
+          <li>Fresh Muffin <span class="price">£3.25</span></li>
+          <li>Savoury Pastry <span class="price">£3.75–£4.25</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card">
+        <div class="banner combo">
+          <span class="icon-circle"><svg viewBox="0 0 24 24"><path d="M12 3l2.2 4.6 5 .7-3.6 3.6.9 5-4.5-2.4L7.5 17l.9-5-3.6-3.6 5-.7L12 3Z"/></svg></span>
+          Combo Deals
+        </div>
+        <ul>
+          <li>Coffee + Croissant <span class="price">£5.50</span></li>
+          <li>Coffee + Muffin <span class="price">£5.75</span></li>
+          <li>Coffee + Savoury Pastry <span class="price">£6.50</span></li>
+          <li>Matcha + Croissant <span class="price">£6.50</span></li>
+          <li>Matcha + Muffin <span class="price">£6.75</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-card perk">
+        <div class="banner">
+          <span class="icon-circle"><svg viewBox="0 0 24 24" stroke="#C27C2E"><path d="M12 20s-7-4.4-9.3-8.8C1.4 8.6 2.7 5.5 5.6 5c2-.4 3.7.7 4.4 2.3C10.7 5.7 12.4 4.6 14.4 5c2.9.5 4.2 3.6 2.9 6.2C15 15.6 12 20 12 20Z" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Perk Me Up
+        </div>
+        <ul style="border:none;">
+          <li style="border:none;">Buy a coffee. Share the good vibes.</li>
+          <li style="border:none;">Collect points with every purchase.</li>
+        </ul>
       </div>
     </div>
-  </section>
 
-  <!-- FIND OUR TRUCK -->
-  <section id="truck" class="truck">
-    <div class="truck__inner">
-      <div class="section-head">
-        <span class="script-eyebrow">Catch us out there</span>
-        <h2 class="section-title">Find Our Truck</h2>
-        <p class="section-sub">Come say hello — our weekly locations are coming soon.</p>
+    <p class="menu-tagline">Plant-powered coffee. Real connection.</p>
+  </div>
+</section>
+
+<section class="get-app" id="get-app">
+  <div class="container">
+    <div class="get-app-grid">
+
+      <div class="get-app-copy">
+        <span class="section-tag">Coming Soon</span>
+        <h2>Your next coffee could be free.<br>Track it in the app.</h2>
+        <p>Order ahead, watch your Perk Me Up points climb, and always know where the truck is — all from your phone.</p>
+
+        <ul class="get-app-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h13a3 3 0 0 1 0 6h-1"/><path d="M4 9v6a4 4 0 0 0 4 4h5a4 4 0 0 0 4-4v-1"/></svg>Order ahead, skip the queue</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>Earn Perk Me Up points every visit</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18"/><circle cx="16.5" cy="14" r="1"/></svg>Digital wallet — top up or gift a card</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Live truck location, every trading day</li>
+        </ul>
+
+        <form class="get-app-form" id="get-app-form">
+          <label for="get-app-email" class="sr-only">Email address</label>
+          <input type="email" id="get-app-email" placeholder="you@email.com" required>
+          <button type="submit">Notify Me at Launch</button>
+        </form>
+        <span class="get-app-note" id="get-app-note">Be first to know when Perk Me Up goes live — no spam, ever.</span>
       </div>
-      <div class="truck__grid">
-        <div class="soon-panel" role="img" aria-label="Truck location map coming soon">
-          <svg class="soon-panel__ico"><use href="#i-pin"/></svg>
-          <span class="soon-script">Coming soon</span>
-          <p class="soon-note">Our live map and weekly locations are on their way.</p>
+
+      <div class="get-app-visual">
+        <div class="ga-ring-card">
+          <div class="ga-ring"><span class="ga-ring-num">124</span></div>
+          <span class="ga-ring-label">76 points to your next free coffee</span>
         </div>
-        <div class="schedule">
-          <a href="#events" class="schedule-card schedule-card--sage schedule-card--link">
-            <div class="schedule-card__title">Book us for your event</div>
-            <span class="schedule-card__cta">Get in touch →</span>
-          </a>
+        <div class="ga-qr-card">
+          <div class="ga-qr"><svg viewBox="0 0 100 100" fill="none">
+          <rect x="6" y="6" width="26" height="26" fill="none" stroke="var(--espresso)" stroke-width="6"/>
+          <rect x="14" y="14" width="10" height="10" fill="var(--espresso)"/>
+          <rect x="68" y="6" width="26" height="26" fill="none" stroke="var(--espresso)" stroke-width="6"/>
+          <rect x="76" y="14" width="10" height="10" fill="var(--espresso)"/>
+          <rect x="6" y="68" width="26" height="26" fill="none" stroke="var(--espresso)" stroke-width="6"/>
+          <rect x="14" y="76" width="10" height="10" fill="var(--espresso)"/>
+          <rect x="44" y="6" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="58" y="6" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="44" y="20" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="44" y="34" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="58" y="34" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="44" y="44" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="6" y="44" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="20" y="44" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="68" y="44" width="26" height="8" fill="var(--espresso)"/>
+          <rect x="68" y="58" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="82" y="58" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="44" y="68" width="8" height="26" fill="var(--espresso)"/>
+          <rect x="58" y="68" width="8" height="8" fill="var(--espresso)"/>
+          <rect x="68" y="80" width="26" height="8" fill="var(--espresso)"/>
+          <rect x="58" y="86" width="8" height="8" fill="var(--espresso)"/>
+        </svg></div>
+          <span>Scan to preview the app<br><em>Early preview — full launch coming soon</em></span>
         </div>
+        <a class="ga-preview-btn" href="https://jumping-beans-app.vercel.app" target="_blank" rel="noopener">Preview the app now</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <span class="section-tag">Good to Know</span>
+    <h2>FAQs &amp; Allergens</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Are all your drinks really 100% plant-based?</summary>
+        <p>Yes — every drink on the menu is made with premium oat milk as standard, and there's no dairy, honey, or other animal-derived ingredients anywhere in our recipes or syrups.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where does your oat milk come from?</summary>
+        <p>We use a UK-based oat milk supplier chosen for taste and sustainability. If you'd like the exact brand for allergen or sourcing reasons, just ask us at the truck or drop us an email.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you cater for allergies other than dairy?</summary>
+        <p>Our food items may contain gluten, nuts, or other allergens depending on the bake. Please ask a team member at the truck before ordering — we're always happy to talk through ingredients.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I book Jumping Beans for a private event or wedding?</summary>
+        <p>Absolutely — we cater festivals, markets, weddings, and private hire. Head to the enquiry section below or email us and we'll get back to you with availability and pricing.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is your packaging eco-friendly?</summary>
+        <p>Sustainability is core to how we run Jumping Beans, and we're always working to make our cups, lids, and packaging as low-impact as possible. Ask us on the day for the latest on what we're using.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="merch" id="merch">
+  <div class="container">
+    <span class="section-tag">Coming Soon</span>
+    <h2>Jumping Beans Merch</h2>
+    <p style="max-width:520px;">Wear it, carry it, sip from it. Our merch line is brewing behind the scenes — here's a taste of what's on the way.</p>
+
+    <div class="merch-grid">
+      <div class="merch-card">
+        <span class="icon-circle-lg"><svg viewBox="0 0 24 24"><path d="M8 4 4 7l2 3 2-1.5V20h8V8.5L18 10l2-3-4-3-2 2h-4L8 4Z"/></svg></span>
+        <h3>T-Shirts</h3>
+        <span class="merch-pill">Coming Soon</span>
+      </div>
+
+      <div class="merch-card">
+        <span class="icon-circle-lg"><svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+        <h3>Tote Bags</h3>
+        <span class="merch-pill">Coming Soon</span>
+      </div>
+
+      <div class="merch-card">
+        <span class="icon-circle-lg"><svg viewBox="0 0 24 24"><path d="M5 5h10v9a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V5Z"/><path d="M15 8h1.5a2.5 2.5 0 0 1 0 5H15"/></svg></span>
+        <h3>Mugs</h3>
+        <span class="merch-pill">Coming Soon</span>
+      </div>
+
+      <div class="merch-card">
+        <span class="icon-circle-lg"><svg viewBox="0 0 24 24"><path d="M7 9h10l-1 10.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 7 19.5L6 9Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3M4 9h16"/></svg></span>
+        <h3>Reusable Cups</h3>
+        <span class="merch-pill">Coming Soon</span>
       </div>
     </div>
-  </section>
 
-  <!-- MENU -->
-  <section id="menu" class="menu">
-    <div class="menu__overlay" aria-hidden="true"></div>
-    <svg class="menu__sprig" aria-hidden="true"><use href="#sprig"/></svg>
-    <div class="menu__inner">
-      <div class="section-head section-head--light">
-        <span class="script-eyebrow">On the menu</span>
-        <h2 class="section-title section-title--light">Brews &amp; Treats</h2>
-        <p class="section-sub section-sub--light">Every drink available with oat, almond or coconut milk.</p>
+    <div class="merch-notify" id="merch-notify">
+      <div class="merch-notify-text">
+        <b>Want a heads-up when merch drops?</b>
+        <span>Drop your email — we'll only message you when the shop opens.</span>
       </div>
-      <div class="menu__grid">
-        <div class="menu__col">
-          <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-cup"/></svg>Coffee</h3>
-          <ul class="menu__list">
-            <li><span class="menu__item">Latte</span><span class="price">£3.40</span></li>
-            <li><span class="menu__item">Cappuccino</span><span class="price">£3.40</span></li>
-            <li><span class="menu__item">Flat White</span><span class="price">£3.40</span></li>
-            <li><span class="menu__item">Americano</span><span class="price">£2.80</span></li>
-            <li><span class="menu__item">Mocha</span><span class="price">£3.60</span></li>
-            <li><span class="menu__item">Espresso</span><span class="price">£2.40</span></li>
-          </ul>
-        </div>
-        <div class="menu__col">
-          <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-leaf"/></svg>More Drinks</h3>
-          <ul class="menu__list">
-            <li><span class="menu__item">Oat Latte <span class="tag tag--v">VG</span></span><span class="price">£3.60</span></li>
-            <li><span class="menu__item">Iced Coffee <span class="tag tag--df">DF</span></span><span class="price">£3.50</span></li>
-            <li><span class="menu__item">Matcha Latte <span class="tag tag--v">VG</span></span><span class="price">£3.80</span></li>
-            <li><span class="menu__item">Chai Latte <span class="tag tag--v">VG</span></span><span class="price">£3.80</span></li>
-            <li><span class="menu__item">Hot Chocolate <span class="tag tag--v">VG</span></span><span class="price">£3.40</span></li>
-          </ul>
-        </div>
-        <div class="menu__col">
-          <h3 class="menu__col-title"><svg class="menu__col-ico"><use href="#i-spark"/></svg>Vegan Treats</h3>
-          <ul class="menu__list">
-            <li><span class="menu__item">Vegan Muffins <span class="tag tag--v">VG</span></span><span class="price">£2.60</span></li>
-            <li><span class="menu__item">Cookies <span class="tag tag--gf">GF</span></span><span class="price">£1.80</span></li>
-            <li><span class="menu__item">Brownies <span class="tag tag--v">VG</span></span><span class="price">£2.40</span></li>
-          </ul>
-        </div>
-      </div>
-      <p class="menu__allergens">
-        <span class="tag tag--v">VG</span> Vegan &nbsp;
-        <span class="tag tag--gf">GF</span> Gluten-free &nbsp;
-        <span class="tag tag--df">DF</span> Dairy-free &nbsp;·&nbsp;
-        Allergens: ask our baristas or check the label — we're happy to help.
-      </p>
-    </div>
-  </section>
-
-  <!-- COFFEE CLUB -->
-  <section id="club" class="club">
-    <div class="club__inner">
-      <div class="club-card">
-        <div class="club-card__blob" aria-hidden="true"></div>
-        <svg class="club-card__sprig" aria-hidden="true"><use href="#sprig"/></svg>
-        <span class="script-eyebrow">Members only</span>
-        <h3 class="card-title">Join the Jumping Beans family</h3>
-        <div class="soon-panel soon-panel--onDark">
-          <svg class="soon-panel__ico"><use href="#i-gift"/></svg>
-          <span class="soon-script">Coming soon</span>
-          <p class="soon-note soon-note--light">Our Coffee Club rewards are brewing. Watch this space.</p>
-        </div>
-      </div>
-
-      <div class="club-side">
-        <div class="reviews">
-          <span class="script-eyebrow">Kind words</span>
-          <h3 class="card-title card-title--dark">Loved by our regulars</h3>
-          <article class="review">
-            <div class="review__stars" aria-label="5 out of 5 stars">
-              <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
-            </div>
-            <p>"Best oat latte I've had, full stop. The truck at the Riverside market is the highlight of my Saturday."</p>
-            <div class="review__by">— Priya</div>
-          </article>
-          <article class="review">
-            <div class="review__stars" aria-label="5 out of 5 stars">
-              <svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg>
-            </div>
-            <p>"Booked Jumping Beans for our wedding — incredible coffee and the loveliest team. Guests are still talking about it."</p>
-            <div class="review__by">— Sam &amp; Alex</div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery" class="gallery">
-    <div class="gallery__inner">
-      <div class="section-head">
-        <span class="script-eyebrow">Say hi on the 'gram</span>
-        <h2 class="section-title">From the Bean Scene</h2>
-        <p class="section-sub">@jumpingbeanscoffee</p>
-      </div>
-      <div class="gallery__grid">
-        <div class="gallery__tile">
-          <img src="assets/gram-espresso.jpg" alt="Fresh espresso pouring into two cups on the machine" style="object-position:center 60%" loading="lazy">
-        </div>
-        <div class="gallery__tile">
-          <img src="assets/barista-pour.jpg" alt="A Jumping Beans barista serving a fresh cappuccino" style="object-position:38% center" loading="lazy">
-        </div>
-        <div class="gallery__tile">
-          <img src="assets/gram-promo.jpg" alt="Something big is brewing — a new Jumping Beans coffee truck coming soon" style="object-position:center top" loading="lazy">
-        </div>
-        <div class="gallery__tile">
-          <img src="assets/gram-box.jpg" alt="A box of Jumping Beans plant based coffee cards ready to send" style="object-position:center 55%" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EVENTS & CATERING -->
-  <section id="events" class="events">
-    <svg class="events__sprig" aria-hidden="true"><use href="#sprig"/></svg>
-    <div class="events__inner">
-      <div class="events__intro">
-        <span class="script-eyebrow script-eyebrow--cream">Let's celebrate</span>
-        <h2 class="section-title section-title--light">Events &amp; Catering</h2>
-        <p class="events__body">We're available for festivals, markets, corporate events, weddings and private hire. Great coffee turns any gathering into a good moment — tell us about yours.</p>
-      </div>
-      <form class="booking" id="booking-form" novalidate>
-        <h3 class="booking__title">Enquire about a booking</h3>
-        <div class="booking__grid">
-          <label>Name<input type="text" name="name" autocomplete="name" required></label>
-          <label>Company / event name<input type="text" name="event_name"></label>
-          <label>Email<input type="email" name="email" autocomplete="email" required></label>
-          <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-          <label>Event date<input type="date" name="date"></label>
-          <label>Event location<input type="text" name="location"></label>
-          <label>Expected attendance<input type="number" name="attendance" min="1" placeholder="e.g. 150"></label>
-          <label>Event type
-            <select name="type">
-              <option value="">Select…</option>
-              <option>Festival</option>
-              <option>Market</option>
-              <option>Corporate event</option>
-              <option>Wedding</option>
-              <option>Private party</option>
-            </select>
-          </label>
-        </div>
-        <button type="submit" class="btn btn--caramel btn--block">Send Enquiry</button>
-        <p class="form-status" id="booking-status" role="status" aria-live="polite"></p>
+      <form class="merch-notify-form" id="merch-notify-form">
+        <label for="merch-email" class="sr-only">Email address</label>
+        <input type="email" id="merch-email" name="email" placeholder="you@email.com" required>
+        <button type="submit">Notify Me</button>
       </form>
+      <span class="merch-notify-note" id="merch-notify-note">We'll never share your email or spam your inbox.</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- JOIN COMMUNITY -->
-  <section id="join" class="join">
-    <svg class="join__sun" aria-hidden="true"><use href="#sun"/></svg>
-    <div class="join__inner">
-      <span class="script-eyebrow">Stay in the loop</span>
-      <h2 class="section-title">Join Our Community</h2>
-      <p class="join__body">Sign up for updates, offers and all things Jumping Beans — plus be the first to know where we're parked next.</p>
-      <form class="join__form" id="signup-form" novalidate>
-        <label class="visually-hidden" for="signup-email">Your email address</label>
-        <input type="email" id="signup-email" name="email" placeholder="Your email address" autocomplete="email" required>
-        <button type="submit" class="btn btn--caramel">Sign Me Up</button>
-      </form>
-      <p class="form-status" id="signup-status" role="status" aria-live="polite"></p>
+<script>
+  (function(){
+    var form = document.getElementById('merch-notify-form');
+    var note = document.getElementById('merch-notify-note');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('merch-email').value;
+      if (!email) return;
+      form.style.display = 'none';
+      note.textContent = "You're on the list — we'll email you the moment merch drops!";
+      note.style.color = 'var(--caramel-light)';
+      note.style.fontWeight = '700';
+    });
+  })();
+  (function(){
+    var form = document.getElementById('get-app-form');
+    var note = document.getElementById('get-app-note');
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = document.getElementById('get-app-email').value;
+      if (!email) return;
+      form.style.display = 'none';
+      note.textContent = "You're on the list — we'll email you the moment the app launches!";
+      note.style.color = 'var(--caramel-light)';
+      note.style.fontWeight = '700';
+    });
+  })();
+</script>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <span class="section-tag">Say Hi On The 'Gram</span>
+    <h2>From the Bean Scene</h2>
+    <div class="gallery-grid">
+      <img src="assets/fresh-espresso-pouring-into-029294f7.jpg" alt="Fresh espresso pouring into two cups">
+      <img src="assets/something-big-is-brewing-de48c5b9.jpg" alt="Something big is brewing promo">
+      <img src="assets/truck-video-poster-5e0383cf.jpg" alt="Jumping Beans Coffee truck">
+      <img src="assets/jumping-beans-coffee-logo-e3615d71.jpg" alt="Jumping Beans Coffee logo">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__top">
-        <div class="footer__col footer__col--brand">
-          <div class="brand brand--footer">
-            <img class="brand__logo brand__logo--lg" src="assets/jumping-beans-logo.png" alt="Jumping Beans Coffee" width="60" height="60">
-            <span class="brand__word">
-              <span class="brand__script brand__script--lg">Jumping</span>
-              <span class="brand__name brand__name--lg">BEANS COFFEE</span>
-            </span>
-          </div>
-          <p class="footer__slogan">Good coffee. Good people. Good moments.</p>
-          <div class="footer__social">
-            <a href="https://www.instagram.com/jumping_beans26/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
-            <a href="https://www.tiktok.com/@jumpingbeanscoffee" target="_blank" rel="noopener" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
-          </div>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__h">Explore</h4>
-          <a href="#story">Our Story</a>
-          <a href="#truck">Find Our Truck</a>
-          <a href="#menu">Menu</a>
-          <a href="#events">Events &amp; Catering</a>
-          <a href="#gallery">Gallery</a>
-        </div>
-        <div class="footer__col">
-          <h4 class="footer__h">Get in touch</h4>
-          <a href="mailto:jumping_bean26@hotmail.com"><svg class="mini-ico"><use href="#i-mail"/></svg>jumping_bean26@hotmail.com</a>
-          <a href="#truck"><svg class="mini-ico"><use href="#i-pin"/></svg>London, England</a>
-        </div>
+<section class="reviews" id="reviews">
+  <div class="container">
+    <span class="section-tag">Kind Words</span>
+    <h2>Loved by our regulars</h2>
+    <!-- PLACEHOLDER QUOTES — swap every card below for real customer reviews before launch -->
+    <div class="review-wall">
+      <div class="review-card">
+        <p>"Best oat latte I've had, full stop. The truck at the Riverside market is the highlight of my Saturday."</p>
+        <span class="who">— Priya</span>
       </div>
-      <div class="footer__values">
-        <span>Plant Based</span><span class="footer__dot">•</span>
-        <span>Ethical</span><span class="footer__dot">•</span>
-        <span>Community</span><span class="footer__dot">•</span>
-        <span>Sustainable</span>
+      <div class="review-card">
+        <p>"Booked Jumping Beans for our wedding — incredible coffee and the loveliest team. Guests are still talking about it."</p>
+        <span class="who">— Sam & Alex</span>
       </div>
-      <p class="footer__legal">© 2026 Jumping Beans Coffee Ltd · Registered in England &amp; Wales</p>
+      <div class="review-card">
+        <p>"The Salted Caramel Flat White has genuinely ruined every other coffee for me. Worth the walk every time."</p>
+        <span class="who">— Marcus</span>
+      </div>
+      <div class="review-card">
+        <p>"Finally a coffee truck that takes plant-based seriously without making a big deal of it. It's just good coffee."</p>
+        <span class="who">— Freya</span>
+      </div>
+      <div class="review-card">
+        <p>"Brilliant with kids, brilliant matcha, brilliant vibe. Our whole family looks forward to market days now."</p>
+        <span class="who">— Aisha</span>
+      </div>
+      <div class="review-card">
+        <p>"You can tell this is a family business — every visit feels like catching up with a friend, not a transaction."</p>
+        <span class="who">— Tom</span>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="js/main.js"></script>
+<!-- FUTURE: "As Seen In/At/On" press logo row goes here once you have real press mentions.
+     Pattern to follow: horizontal row of greyscale logos, same review-wall scroll treatment.
+     Placeholder — do not build until real logos/features exist. -->
+
+<section class="cta-band" id="events">
+  <div class="container">
+    <h2>Let's celebrate together</h2>
+    <p style="max-width:480px;margin:0 auto 24px;">Festivals, markets, weddings and private hire — tell us about your event.</p>
+    <a class="btn" href="mailto:jumping_bean26@hotmail.com">Enquire About a Booking</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <a class="brand" href="#top" style="color:#fff;"><img src="assets/jumping-beans-coffee-logo-e3615d71.jpg" alt="Jumping Beans Coffee logo" class="brand-logo"> Jumping Beans Coffee</a>
+      <p style="max-width:320px;margin-top:14px;">Good coffee. Good people. Good moments. Registered in England &amp; Wales.</p>
+      <div class="social-row">
+        <a class="social-icon" href="https://www.instagram.com/jumping_beans26/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="#fff" stroke="none"/></svg>
+        </a>
+        <a class="social-icon" href="https://www.tiktok.com/@jumpingbeanscoffee" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M15 3v10.5a3.5 3.5 0 1 1-3-3.46"/><path d="M15 3c.3 2.4 2 4.2 4.4 4.5"/></svg>
+        </a>
+        <a class="social-icon" href="mailto:jumping_bean26@hotmail.com" aria-label="Email Jumping Beans Coffee">
+          <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#truck">Find Our Truck</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#get-app">Get the App</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#merch">Merch</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><a href="mailto:jumping_bean26@hotmail.com">jumping_bean26@hotmail.com</a></li>
+        <li>London, England</li>
+        <li><a href="https://www.instagram.com/jumping_beans26/">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@jumpingbeanscoffee">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© 2026 Jumping Beans Coffee Ltd</span>
+    <span>Plant Based · Ethical · Community · Sustainable</span>
+  </div>
+</footer>
+
 </body>
 </html>

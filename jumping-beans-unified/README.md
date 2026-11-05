@@ -72,3 +72,9 @@ Both use the current espresso/caramel palette and are otherwise consistent;
 canonical current build, saved as `website/index.html`. If `preview-1` was
 meant to be a distinct version rather than an earlier duplicate, let me know
 and I'll fold in a diff.
+
+**Update:** `website/index.html` has been optimised — the embedded images and
+video were extracted into `website/assets/` and compressed, taking the page
+from ~13.9 MB to ~50 KB (identical appearance; the video now streams on
+demand). The same optimised build is mirrored at the repo root (`index.html` +
+`assets/`), which is what Vercel deploys.
